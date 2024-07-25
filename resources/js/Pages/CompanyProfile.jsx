@@ -1,7 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState, useEffect } from 'react';
 import ProfileImageContainer from '@/Components/ProfileImageContainer';
-
+import Deposit from './Deposit';
 export default function CompanyProfile({founder, company, auth}){
 
     const[image, setImage] = useState()
@@ -48,7 +48,7 @@ export default function CompanyProfile({founder, company, auth}){
                     </p>
                 </div>
                 
-                
+                <Deposit authUserId={auth.user.id}></Deposit>
         </div>
     </AuthenticatedLayout>
     )
