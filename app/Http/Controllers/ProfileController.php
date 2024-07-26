@@ -60,4 +60,8 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function yourPage(){
+        return Inertia::render('YourPage');
+    }
 }

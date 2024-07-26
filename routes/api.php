@@ -22,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //storeTransaction
 Route::post('/storeTransaction', [TransactionController::class, "store"])->name("transaction.store");
 
+//getTransactions your
+Route::get('/personalTransaction/{id}', [TransactionController::class, "fetchTransactions"])->name("your.transaction");
+

@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
 
     Route::get('/companyProfile/{id}', [CompanyController::class, 'show'])->name('your.company');
+
+    Route::get('/yourPage', [ProfileController::class, 'yourPage'])->name('profile.yourpage');
     
     Route::get('/imageUpload/{id}/{name}', [FileController::class, 'index'])->name('file.form');
     Route::post('/imagestore', [FileController::class, 'store'])->name('file.store');

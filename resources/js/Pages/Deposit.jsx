@@ -1,5 +1,5 @@
 //0x5FbDB2315678afecb367f032d93F642f64180aa3 
-import abi from "./contract/Stocks.json"
+import abi from "./contract/Stocks1.json"
 import { useState, useEffect, useRef, useTransition } from 'react';
 import axios from "axios";
 import { ethers, formatUnits } from "ethers";
@@ -49,7 +49,7 @@ export default function Deposit({handleReload, authUserId, companyId}){
           }
       
         
-          const contractAddres = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+          const contractAddres = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
           const contractABI = abi.abi
 
           const contract = new ethers.Contract(
@@ -83,6 +83,7 @@ export default function Deposit({handleReload, authUserId, companyId}){
                 amount: deposit,
                 user_id: userId,
                 company_id: companyId,
+                status:'invest'
             })
 
             handleReload()

@@ -32,8 +32,17 @@ class TransactionController extends Controller
             "walletAdress"=> $request->walletAdress,
             "amount"=> $request->amount,
             "user_id"=> $request->user_id,
-            "company_id"=> $request->company_id
+            "company_id"=> $request->company_id,
+            "status"=> $request->status
         ]);
+    }
+
+    public function fetchTransactions($id)
+    {
+        $yourtransaction = Transaction::with('company')->where('user_id', $id)->get();
+ 
+        return $yourtransaction;
+
     }
 
     /**
