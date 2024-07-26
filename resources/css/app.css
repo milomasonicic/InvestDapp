@@ -65,3 +65,12 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+  /*wallet section */
+
+  .walletAdr{
+    word-break: break-all;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    white-space: pre-wrap;
+  }

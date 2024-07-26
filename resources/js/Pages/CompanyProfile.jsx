@@ -2,10 +2,16 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState, useEffect } from 'react';
 import ProfileImageContainer from '@/Components/ProfileImageContainer';
 import Deposit from './Deposit';
+import Investitions from './Invenstitions'
 export default function CompanyProfile({founder, company, auth}){
 
     const[image, setImage] = useState()
     const[dsc, setDsc] = useState()
+
+    const handleReload = () => {
+        
+        window.location.reload()
+    };
     
     
     useEffect(() =>{
@@ -43,12 +49,15 @@ export default function CompanyProfile({founder, company, auth}){
                  text-gray-900
                 dark:text-stone-50
                 '>
+                <div>
+                <Investitions companyId={company.id}></Investitions>
+                </div>    
                     <p>
                         {dsc}
                     </p>
                 </div>
                 
-                <Deposit authUserId={auth.user.id}></Deposit>
+                <Deposit handleReload={handleReload} authUserId={auth.user.id} companyId={company.id}></Deposit>
         </div>
     </AuthenticatedLayout>
     )
