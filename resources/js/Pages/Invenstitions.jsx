@@ -35,7 +35,7 @@ export default function Investitions({companyId}){
             font-extrabold 
             text-blue-500">
             
-            Investiotion
+            Investitions
             <div className="h-[30%] border-b-4 border-blue-500 "> {formattedTokenShare}SHW </div>
         </div>
     )

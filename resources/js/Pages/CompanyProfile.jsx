@@ -51,7 +51,13 @@ export default function CompanyProfile({founder, company, auth}){
                 '>
                 <div>
                 <Investitions companyId={company.id}></Investitions>
-                </div>    
+                </div>  
+                <h2 className='text-center mt-10
+                font-bold
+                text-gray-900
+                text-2xl
+                dark:text-teal-400
+                '>What we do? Company Description</h2>  
                     <p>
                         {dsc}
                     </p>

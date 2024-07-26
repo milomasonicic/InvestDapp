@@ -82,7 +82,7 @@ export default function Deposit({handleReload, authUserId, companyId}){
                 walletAdress: walletAddress,
                 amount: deposit,
                 user_id: userId,
-                companyId: companyId,
+                company_id: companyId,
             })
 
             handleReload()
