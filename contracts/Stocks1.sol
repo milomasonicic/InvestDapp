@@ -44,6 +44,7 @@ contract StocksToken2 is ERC20 {
         return userTokenBalance[userId][companyId];
     }
 
+
     //buySellFunction
     function buyTokens( uint256 buyerUserId, uint256 numberOfTokens, 
     uint256 sellerUserId, address sellerAddress, uint256 companyId) public payable{

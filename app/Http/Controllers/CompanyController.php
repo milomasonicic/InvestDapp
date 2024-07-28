@@ -54,6 +54,26 @@ class CompanyController extends Controller
         ]);
     }
 
+    //showCompanyProfil
+
+    public function showCompanyProfil($id){
+        $company = Company::with(["file" => function($query){
+            $query->latest()->first();
+        }])->findorfail($id);
+
+        $userId = $company->founder_id;
+        
+        
+        $founder = User::findOrFail($userId);
+
+        $founderName = $founder->name;
+        return Inertia::render("CompanyProfile2", [
+            "company"=> $company,
+            "founder"=> $founderName,
+        ]);
+
+    }
+
     //See all companies
 
     public function all(){

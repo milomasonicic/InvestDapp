@@ -53,11 +53,16 @@ export default function YourInvestmets({userId}){
                 companies.map(company => (
                     <div key={company.id}>
                         <div>
-                            {company.companyName}
                             {company.companyId}
 
                         </div>
-                        <Link></Link>
+                        <Link href={`/companyprof/${company.companyId}`} 
+                        class="text-blue-700 underline"
+                        >
+                            <strong>
+                            {company.companyName}
+                            </strong>
+                        </Link>
                         
                     </div>
                 ))

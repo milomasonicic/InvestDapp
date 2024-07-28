@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
 
     Route::get('/companyProfile/{id}', [CompanyController::class, 'show'])->name('your.company');
+    Route::get('/companyprof/{id}', [CompanyController::class, 'showCompanyProfil'])->name('your.compinvestmet');
 
     Route::get('/yourPage', [ProfileController::class, 'yourPage'])->name('profile.yourpage');
     
