@@ -65,4 +65,14 @@ class CompanyController extends Controller
         ]);
 
     }
+
+    //get Company Name - api route
+
+    public function fetchCompanyName($id){
+
+        $company = Company::find($id);
+        $name = $company->name; 
+
+        return $name;
+    }
 }

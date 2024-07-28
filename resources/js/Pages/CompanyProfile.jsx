@@ -3,9 +3,13 @@ import { useState, useEffect } from 'react';
 import ProfileImageContainer from '@/Components/ProfileImageContainer';
 import Deposit from './Deposit';
 import Investitions from './Invenstitions'
+import Ownerships from './OwnershipPercentage';
+
+
 export default function CompanyProfile({founder, company, auth}){
 
     const[image, setImage] = useState()
+    const [name, SetName] = useState()
     const[dsc, setDsc] = useState()
 
     const handleReload = () => {
@@ -17,6 +21,7 @@ export default function CompanyProfile({founder, company, auth}){
     useEffect(() =>{
         setImage(company.file.name)
         setDsc(company.description)
+        SetName(company.name)
         
     }, [image])
     return(
@@ -50,7 +55,7 @@ export default function CompanyProfile({founder, company, auth}){
                 dark:text-stone-50
                 '>
                 <div>
-                <Investitions companyId={company.id}></Investitions>
+                <Investitions companyId={company.id} ></Investitions>
                 </div>  
                 <h2 className='text-center mt-10
                 font-bold
@@ -62,8 +67,12 @@ export default function CompanyProfile({founder, company, auth}){
                         {dsc}
                     </p>
                 </div>
+
+                <div>
+                <Ownerships number={company.id}></Ownerships>
+                </div>
                 
-                <Deposit handleReload={handleReload} authUserId={auth.user.id} companyId={company.id}></Deposit>
+                <Deposit handleReload={handleReload} authUserId={auth.user.id} companyId={company.id} name={company.name} ></Deposit>
         </div>
     </AuthenticatedLayout>
     )

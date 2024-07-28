@@ -61,8 +61,8 @@ contract Stocks1 is ERC20 {
         return companyTotalBalance[companyId];
     }
 
-    //checkUserCompanies
 
+    //checkUserCompanies
     function getUserInvestedCompanies(uint256 userId) public view returns(uint256[] memory) {
  
     uint256 companiesNum = companies.length * 100;

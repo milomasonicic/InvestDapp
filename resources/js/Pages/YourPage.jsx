@@ -1,9 +1,10 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState, useEffect } from 'react';
-import abi from "./contract/Stocks1.json"
+import abi from "./contract/StocksToken2.json"
 import { ethers, formatUnits } from "ethers";
 import History from './PersonalTransactions';
 import Balance from './Balance';
+import YourInvestmets from './InvestmentPerCompany';
 
 export default function YourPage({auth}){
 
@@ -44,6 +45,7 @@ export default function YourPage({auth}){
         </h1>
         <div className='w-[90%] md:w-[70%] mx-auto'>
             <Balance userId={auth.user.id}></Balance>
+            <YourInvestmets userId={auth.user.id}></YourInvestmets>
         </div>
     </AuthenticatedLayout>
     )
