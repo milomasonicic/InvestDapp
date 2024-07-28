@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\File;
+use App\Models\Offer;
 use App\Models\Company;
 use App\Models\Transaction;
 use Laravel\Sanctum\HasApiTokens;
@@ -59,5 +60,10 @@ class User extends Authenticatable
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
     }
 }

@@ -4,7 +4,7 @@ export default function LandingPage({user}){
 
 
     return(
-        <div className="mx-auto px-4 bg-red-300 dark:bg-gray-900 h-[500px] 
+        <div className="mx-auto px-4 bg-red-300 dark:bg-black h-[500px] 
         flex  flex-col items-center justify-center">
             <Head></Head>
             <Button></Button>

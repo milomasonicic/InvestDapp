@@ -6,6 +6,7 @@ import UserInvestment from './UserInvestAmount.jsx'
 
 import CreateOffer from './CrateOffer';
 import Ownerships from './OwnershipPercentage';
+import { use } from 'chai';
 
 
 export default function CompanyProfile({founder, company, auth}){
@@ -14,10 +15,15 @@ export default function CompanyProfile({founder, company, auth}){
     const [name, SetName] = useState()
     const[dsc, setDsc] = useState()
 
-    const handleReload = () => {
+    const [blnc1, setBlnc] = useState()
+
+    const handleBalance = (blnc) => {
         
-        window.location.reload()
+       setBlnc(blnc)
     };
+
+    //
+    console.log(blnc1, "passTothe")
     
     
     useEffect(() =>{
@@ -57,7 +63,8 @@ export default function CompanyProfile({founder, company, auth}){
                 dark:text-stone-50
                 '>
                 <div>
-                <UserInvestment companyId={company.id} 
+                <UserInvestment companyId={company.id}
+                balanceUpdate={handleBalance} 
                 userId={auth.user.id} ></UserInvestment>
                 </div>  
                 <h2 className='text-center mt-10
@@ -75,7 +82,8 @@ export default function CompanyProfile({founder, company, auth}){
                 
                 </div>
                 
-                <CreateOffer></CreateOffer>
+                <CreateOffer controlBalance={blnc1} 
+                company_id={company.id} user_id={auth.user.id}></CreateOffer>
         </div>
     </AuthenticatedLayout>
     )

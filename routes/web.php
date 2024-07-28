@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     
     Route::post('/createCompany', [CompanyController::class, 'store'])->name('company.store');
 
+
     Route::get('/companyProfile/{id}', [CompanyController::class, 'show'])->name('your.company');
     Route::get('/companyprof/{id}', [CompanyController::class, 'showCompanyProfil'])->name('your.compinvestmet');
 
@@ -51,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/imagestore', [FileController::class, 'store'])->name('file.store');
 
     
+    Route::post('/offerStore', [OfferController::class, 'store'])->name('offer.store');
 });
 
 require __DIR__.'/auth.php';
