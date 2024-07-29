@@ -1,6 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import LandingPage from '@/Components/LandingPage';
 import { Head } from '@inertiajs/react';
+import Market from './Market';
 
 export default function Dashboard({ auth }) {
 
@@ -15,8 +16,9 @@ export default function Dashboard({ auth }) {
         
            
             <LandingPage user={authUser}></LandingPage>
-            
-            
+
+            <Market></Market>
+                
         </AuthenticatedLayout>
     );
 }

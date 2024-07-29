@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
@@ -32,3 +33,6 @@ Route::get('/companyName/{id}', [CompanyController::class, "fetchCompanyName"])-
 
 //userName
 Route::get('/userName/{id}', [ProfileController::class, "userName"])->name("user.name");
+
+//seeOffers
+Route::get('/offers', [OfferController::class, "index"])->name("offer.market");
