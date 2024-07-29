@@ -1,4 +1,7 @@
-export default function Transaction({amount, name, time}){
+import { Link } from "@inertiajs/react"
+
+
+export default function Transaction({amount, name, offerId}){
 
     return(
         <div className="px-2 my-1 py-1 w-full flex justify-between bg-white dark:bg-gray-500">
@@ -28,7 +31,14 @@ export default function Transaction({amount, name, time}){
             border-teal-400
             text-sm
             rounded">
-                {time}
+                 <Link href={`/offerProfile/${offerId}`} 
+                        class="text-teal-400 
+                        dark:text-yellow-400 underline"
+                        >
+                            <strong>
+                            Buy Stocks
+                            </strong>
+                </Link>
             </div>
         </div>
     )

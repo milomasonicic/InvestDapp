@@ -41,7 +41,7 @@ export default function Market(){
                         key={id}
                         amount={offer.amount_of_stocks} 
                         name={offer.company.name} 
-                        time={222}></Transaction>
+                        offerId={offer.id}></Transaction>
                     ))
               
 

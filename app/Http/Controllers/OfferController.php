@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Offer;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
@@ -46,9 +48,26 @@ class OfferController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Offer $offer)
+    public function showOffer($id)
     {
-        //
+        $offer = Offer::findorfail($id);
+
+        $idComp = $offer->company_id;
+
+        $company = Company::with(["file" => function($query){
+            $query->latest()->first();
+        }])->findorfail($idComp);
+
+        $founderId= $company->founder_id;
+        
+        $founder = User::findOrFail($founderId);
+
+        
+        return Inertia::render("CompanyProfile3", [
+            "company"=> $company,
+            "offer"=> $offer,
+            "founder"=> $founder,
+        ]);
     }
 
     /**

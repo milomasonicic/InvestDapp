@@ -46,14 +46,15 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/companyProfile/{id}', [CompanyController::class, 'show'])->name('your.company');
     Route::get('/companyprof/{id}', [CompanyController::class, 'showCompanyProfil'])->name('your.compinvestmet');
-
+    
     Route::get('/yourPage', [ProfileController::class, 'yourPage'])->name('profile.yourpage');
     
     Route::get('/imageUpload/{id}/{name}', [FileController::class, 'index'])->name('file.form');
     Route::post('/imagestore', [FileController::class, 'store'])->name('file.store');
-
+    
     
     Route::post('/offerStore', [OfferController::class, 'store'])->name('offer.store');
+    Route::get('/offerProfile/{id}', [OfferController::class, 'showOffer'])->name('offer.show');
 });
 
 require __DIR__.'/auth.php';

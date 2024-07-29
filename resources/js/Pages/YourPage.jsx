@@ -10,30 +10,6 @@ export default function YourPage({auth}){
 
     const [balanceOf, setbalanceOf] = useState()
     const [toogle, setToogle] = useState(false)
-
-    /*async function getYourContractInfo(){
-
-        try{
-
-        const provider = new ethers.JsonRpcProvider('http://localhost:8545')
-        const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
-        const contractABI = abi.abi
-
-        const contract = new ethers.Contract(contractAddress, contractABI, provider)
-        const balance = await contract.balanceOf(auth.user.id)
-        console.log(balance)
-
-        setbalanceOf(balance)
-
-        } catch(error){
-            console.error("error", error)
-        }
-    }
-
-    useEffect(()=>{
-        getYourContractInfo()
-    },[])
-    */
     return(
         <AuthenticatedLayout
         user={auth.user}  
