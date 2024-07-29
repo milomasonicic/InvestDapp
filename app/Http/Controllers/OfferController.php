@@ -52,21 +52,26 @@ class OfferController extends Controller
     {
         $offer = Offer::findorfail($id);
 
+        //seller - note to self: ako bude vremena provjeriti imena u tabeli je eager load ne radi kako treba
+        $sellerId = $offer->seller_id;
+        $seller = User::find($sellerId);
+
+        //company
         $idComp = $offer->company_id;
+
+
 
         $company = Company::with(["file" => function($query){
             $query->latest()->first();
         }])->findorfail($idComp);
 
-        $founderId= $company->founder_id;
-        
-        $founder = User::findOrFail($founderId);
+
 
         
-        return Inertia::render("CompanyProfile3", [
+        return Inertia::render("Offer", [
             "company"=> $company,
             "offer"=> $offer,
-            "founder"=> $founder,
+            "seller"=> $seller,
         ]);
     }
 

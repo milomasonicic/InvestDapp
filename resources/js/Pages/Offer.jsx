@@ -1,17 +1,19 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useState, useEffect } from 'react';
 import ProfileImageContainer from '@/Components/ProfileImageContainer';
-import Deposit from './Deposit';
+import Deposit from './Deposit.jsx';
 import UserInvestment from './UserInvestAmount.jsx'
-import Investitions from './InvenstitionsProfile2'
-import Percentage from './Percentage';
-import CreateOffer from './CrateOffer';
-import Ownerships from './OwnershipPercentage';
+import Investitions from './InvenstitionsProfile2.jsx'
+import Percentage from './Percentage.jsx';
+import CreateOffer from './CrateOffer.jsx';
+import Ownerships from './OwnershipPercentage.jsx';
 import { use } from 'chai';
 
+import BuyTokens from './BuyStocks.jsx';
 
 
-export default function CompanyProfile({offer, founder, company, auth}){
+
+export default function Offer({offer, seller, company, auth}){
 
   
     return(
@@ -20,55 +22,32 @@ export default function CompanyProfile({offer, founder, company, auth}){
       
     > 
     
-        <div> 
+        <div className='w-[100%] md:w-[80%] mx-auto '> 
          
            
-                <h2 className='text-center mt-10
+                <h2 className='text-left
                 font-bold
                 text-gray-900
-                text-2xl
                 dark:text-teal-400
-                '>Investmet: </h2>
+                '>Company Name: {company.name}</h2>
 
-                <h2 className='text-center mt-10
-                font-bold
-                text-xl
-                text-gray-900
-                dark:text-teal-400
-                '>Founder: </h2>
-
-                <div className=' mt-14 w-[80%] 
-                md:w-[60%] 
-                mx-auto
-                 text-gray-900
-                dark:text-stone-50
-                '>
-                <div>
-             
-                </div>  
-                <h2 className='text-center mt-10
+                <h2 className='text-left 
                 font-bold
                 text-gray-900
-                text-2xl
                 dark:text-teal-400
-                '>This Company Description</h2>  
-                    <p>
-                        
-                    </p>
-                </div>
+                '>Amont Of Stocks: {offer.amount_of_stocks} </h2>
 
-                <div>
-                
-                </div>
-
-                <div className='w-full h-[300px] dark:bg-gray-700 bg-stone-100'>
-                     
-                     
-                   
-
-                </div>
-               
+                <h2 className='text-left 
+                font-bold
+                text-gray-900
+                dark:text-teal-400
+                '>Seller: { seller.name} </h2>
+       
             
+        </div>
+
+        <div>
+            <BuyTokens></BuyTokens>
         </div>
     </AuthenticatedLayout>
     )
