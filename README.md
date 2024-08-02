@@ -7,7 +7,7 @@ php artisan migrate
 start testing network
 npx hardhat node
 
-npx 
+npx hardhat ignition deploy ignition/modules/Own.cjs --network localhost
 
 configure metamas
 
