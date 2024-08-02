@@ -9,7 +9,7 @@ npx hardhat node
 
 npx hardhat ignition deploy ignition/modules/Own.cjs --network localhost
 
-configure metamas
+configure MetaMask wallet
 
 npm install
 npm run dev
